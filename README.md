@@ -3,10 +3,7 @@
 >Bluesnarfing is the unauthorized access of information from a wireless device through a Bluetooth connection, often between phones, desktops, laptops, and PDAs (personal digital assistant).
 >\- https://en.wikipedia.org/wiki/Bluesnarfing
 
-Bluesnarfing is a fairly old attack. (First license in debian/copyright says 2007, so that gives you an idea).
-To my knowledge, all modern devices have at least some kind of protection against bluesnarfing.
-For example, I tested this with a Samsung Galaxy s7, and it prompted be to give permission to bluesnarfer to read my contacts, make calls, etc.
-So at least it asked me for permission!
+
 
 # Installation
 
@@ -51,7 +48,7 @@ Here's a good reference I found for AT commands: https://www.sparkfun.com/datash
 (Note that your phone may not support all of the AT commands listed in the reference guide.)
 
 If running the above command doesn't work, you probably need to figure out the right channel to use.
-The default channel used is 17 (see [src/bluesnarfer.c#L59](https://github.com/kimbo/bluesnarfer/blob/kali/master/src/bluesnarfer.c#L59)).
+The default channel used is 17 (see [src/bluesnarfer.c#L59](https://github.com/deciesvivit/BlueSnarf/blob/kali/master/src/bluesnarfer.c#L59)).
 
 To see what channels are available, I used the `sdptool`:
 ```
@@ -61,16 +58,6 @@ sdptool browse --tree --l2cap <MAC_ADDRESS>
 Then I looked through the output for something that looks like it might let you read information or make calls, send messages, etc.
 When in doubt, just check all of the channels listed.
 (Channel 2 worked on my Samsung Galaxy s7, see demo below).
-
-# Demo
-
-Here's a short demo of bluesnarfer I did as part of a school project - https://asciinema.org/a/6e1rjk7V3eJL1qoA3kJRUKfh1.
-
-# License
-License is GPL-2+.
-
-License and copyright info can be found in [debian/copyright](
-https://github.com/kimbo/bluesnarfer/blob/kali/master/debian/copyright).
 
 
 # Original README
